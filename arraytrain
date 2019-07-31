@@ -1,0 +1,92 @@
+package traindetails;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class firstclas{
+
+    public static void main (string[] args){
+        String[] arrl={"M-06.04","M=09.04","M-12.04","M=15.04","M-19.04","T-06.04","T-09.04","T-12.04","T-15.04","T-19.04","W-06.04","W-09.04","W-12.04","W-15.04","W-19.04"};
+        int arr2[]={22,119,64,177,21,22,111,87,193,22,11,107,93,162,42};
+
+        String arr3[] = {};
+        ArrayList<String>myList =new ArrayList<String>(Arrays.myList(arr3));
+        
+        System.out.println("Train Timing No of passengers");
+        for(int i=0;i<arrl.length;i++){
+
+           if (arrl[i].charAt(0)=='M'){
+               System.out.print("Monday ");
+           } else if (arrl[i].charAt(0)=='T'){
+               System.out.print("Tuesday");
+           } else {
+               System.out.print("Wednesday");
+           }
+           System.out.println(arrl[i].substring(2)+" "+ arr2[i]);
+           myList.add(arr1[i] +"-"+ arr2[i]);
+        }
+
+        // find largest and smallest no.of.passengers
+        int smallest = arr2[0];
+        int largest = arr2[0];
+
+        for (int i=1; i<arr2.length; i++){
+            if (arr2[i]>largest)
+                largest = arr2[i];
+            else if (arr2[i]<smallest)
+                smallest = arr2[i];
+        }
+
+        for (int s = 0; s < myList.size(); s++){
+            System.out.println(myList.get(i));
+            String str = myList.get(s);
+            String[] parts = str.split("-");
+            String passenger=parts[2];
+
+            //The most popular train 
+            if (passenger.equalsIgnoreCase(Integer.toString(largest))){
+                System.out.print("The most popular train is");
+                if (parts[0] == "M"){
+                    System.out.print("Monday  ");
+                } else if (parts[0]=="T") {
+                    System.out.print("Tuesday  ");
+                } else {
+                    System.out.print("Wednesday  ");
+                }
+                System.out.println(parts[1]);
+            }
+
+            //The least popular train
+            if (passenger.equalsIgnoreCase(Integer.toString(smallest))){
+                System.out.print("The least popular train is");
+                if (parts[0]== "M"){
+                    System.out.print("Monday  ");
+                } else if (Parts[0]=="T"){
+                    System.out.print("Tuesday  ");
+                } else {
+                    System.out.print("Wednesday ");
+                }
+                System.out.println(parts[1]);
+            }
+         //Finding whetherthe 6.04 train is more popular than 9.04 train
+		     int avgtr1 = (arr2[0] + arr2[5] + arr2[10])/3;
+		     int avgtr2 = (arr2[1] + arr2[6] + arr2[1])/3;
+		
+		     if (avgtr1 > avgtr2)
+		         System.out.println("\n 6.04 train is more popular than 9.04 train");
+		     else
+		         System.out.println("\n 9.04 train is more popular than 6.04 train");
+		    
+		     //Finding whether the 6.04 train on monday is more popular than 6.04 train on tuesday
+		     if (arr2[0] > arr2[5])
+		         System.out.println("\n 6.04 train on monday is more popular than 6.04 train on tuesday");
+		     else
+		         System.out.println("\n 6.04 train on monday is not more popular than 6.04 train on tuesday");
+		    
+		     // Calculating average number of passenger travelling on the 12.04 train
+		     int avgpass = (arr2[2] + arr2[7] + arr2[12])/3;
+		     System.out.println("\n Average number of passenger travelling on the 12.04 train: "+ avgpass);
+		
+        
+        }
+    }
